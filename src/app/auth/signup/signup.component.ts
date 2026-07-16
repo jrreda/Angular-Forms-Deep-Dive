@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {
+  FormArray,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -20,10 +21,10 @@ export class SignupComponent {
     }),
     passwords: new FormGroup({
       password: new FormControl('', {
-        validators: [Validators.required, Validators.maxLength(6)],
+        validators: [Validators.required, Validators.minLength(6)],
       }),
       confirmPassword: new FormControl('', {
-        validators: [Validators.required, Validators.maxLength(6)],
+        validators: [Validators.required, Validators.minLength(6)],
       }),
     }),
     name: new FormGroup({
@@ -39,6 +40,11 @@ export class SignupComponent {
     role: new FormControl<
       'student' | 'teahcer' | 'employee' | 'founder' | 'other'
     >('student', { validators: [Validators.required] }),
+    source: new FormArray([
+      new FormControl(false),
+      new FormControl(false),
+      new FormControl(false),
+    ]),
     agree: new FormControl(false, { validators: [Validators.required] }),
   });
 
@@ -47,6 +53,7 @@ export class SignupComponent {
     const enteredEmail = this.form.value.email;
     const enteredPassword = this.form.value.passwords?.password;
     console.log(enteredEmail, enteredPassword);
+    console.log(this.form.value.source);
   }
 
   onReset() {
