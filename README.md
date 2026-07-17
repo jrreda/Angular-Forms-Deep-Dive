@@ -1,28 +1,61 @@
-# Forms
+# Angular Forms Deep Dive
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0.
+A small Angular 18 project demonstrating how to build and validate a signup
+form with reactive forms.
 
-## Development server
+## Topics covered
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Standalone Angular components
+- Reactive forms with `FormGroup` and `FormControl`
+- Nested form groups for passwords, names, and addresses
+- Checkbox collections with `FormArray`
+- Built-in validators for required fields, email addresses, and minimum lengths
+- A custom cross-field validator for matching passwords
+- Form submission and reset handling
 
-## Code scaffolding
+## Form structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The signup form collects:
 
-## Build
+- Email address
+- Password and password confirmation
+- First and last name
+- Address details
+- User role
+- Discovery sources
+- Terms and conditions acceptance
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Getting started
 
-## Running unit tests
+### Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js
+- npm
 
-## Running end-to-end tests
+### Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install
+```
 
-## Further help
+### Development server
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# Angular-Forms-Deep-Dive
+```bash
+npm start
+```
+
+Open [http://localhost:4200](http://localhost:4200). The application reloads
+automatically when source files change.
+
+## Available scripts
+
+- `npm start` — start the development server
+- `npm run build` — create a production build in `dist/`
+- `npm run watch` — rebuild when source files change
+- `npm test` — run the unit tests with Karma and Jasmine
+
+## Main implementation
+
+The reactive signup form is defined in
+`src/app/auth/signup/signup.component.ts`, and its controls are connected to the
+template in `src/app/auth/signup/signup.component.html`.
